@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Cipher — Encrypted Text</title>
+<title>Cipher — by Ashlen Singh</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
   :root {
@@ -24,9 +24,9 @@
     --font-mono:  'JetBrains Mono', monospace;
     --r:           6px;
   }
-
+ 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
   body {
     background: var(--bg);
     color: var(--text);
@@ -36,13 +36,13 @@
     -webkit-font-smoothing: antialiased;
     font-size: 14px;
   }
-
+ 
   .app {
     max-width: 620px;
     margin: 0 auto;
     padding: 52px 24px 88px;
   }
-
+ 
   /* ── Header ── */
   .header {
     display: flex;
@@ -50,26 +50,26 @@
     justify-content: space-between;
     margin-bottom: 40px;
   }
-
+ 
   .wordmark {
     display: flex;
     align-items: center;
     gap: 11px;
   }
-
+ 
   .brand-name {
     font-size: 15px;
     font-weight: 600;
     letter-spacing: -0.3px;
   }
-
+ 
   .brand-sub {
     font-size: 11.5px;
     color: var(--text3);
     font-weight: 400;
     margin-top: 1px;
   }
-
+ 
   .badge {
     display: flex;
     align-items: center;
@@ -82,19 +82,19 @@
     color: var(--accent);
     font-weight: 500;
   }
-
+ 
   .badge-dot {
     width: 5px; height: 5px;
     border-radius: 50%;
     background: var(--accent);
     animation: blink 2.4s ease-in-out infinite;
   }
-
+ 
   @keyframes blink {
     0%,100% { opacity:1; }
     50%      { opacity:0.35; }
   }
-
+ 
   /* ── Tabs ── */
   .tabs {
     display: flex;
@@ -106,7 +106,7 @@
     width: fit-content;
     margin-bottom: 28px;
   }
-
+ 
   .tab {
     padding: 7px 22px;
     font-size: 13px;
@@ -120,15 +120,15 @@
     transition: all 0.15s;
     letter-spacing: -0.1px;
   }
-
+ 
   .tab.active {
     background: var(--bg3);
     color: var(--text);
     box-shadow: 0 1px 4px rgba(0,0,0,0.5);
   }
-
+ 
   .tab:hover:not(.active) { color: var(--text); }
-
+ 
   /* ── Label ── */
   .lbl {
     font-size: 11px;
@@ -138,12 +138,10 @@
     letter-spacing: 0.8px;
     margin-bottom: 7px;
   }
-
-  /* ── Textarea ── */
-  .field {
-    margin-bottom: 16px;
-  }
-
+ 
+  /* ── Fields ── */
+  .field { margin-bottom: 16px; }
+ 
   textarea, input[type=password], input[type=text] {
     width: 100%;
     background: var(--bg2);
@@ -157,40 +155,38 @@
     transition: border-color 0.15s, box-shadow 0.15s;
     line-height: 1.65;
   }
-
+ 
   textarea {
     resize: vertical;
     min-height: 152px;
     display: block;
   }
-
+ 
   textarea::placeholder {
     color: var(--text3);
     font-family: var(--font-ui);
     font-size: 13px;
   }
-
+ 
   textarea:focus, input:focus {
     border-color: var(--border2);
     box-shadow: 0 0 0 3px var(--accent-dim);
   }
-
-  /* ── Pass row ── */
-  .pass-wrap {
-    position: relative;
-  }
-
+ 
+  /* ── Passphrase ── */
+  .pass-wrap { position: relative; }
+ 
   .pass-wrap input {
     padding-right: 44px;
     letter-spacing: 0.5px;
   }
-
+ 
   .pass-wrap input::placeholder {
     font-family: var(--font-ui);
     font-size: 13px;
     letter-spacing: 0;
   }
-
+ 
   .eye {
     position: absolute;
     right: 0; top: 0; bottom: 0;
@@ -206,7 +202,7 @@
     transition: color 0.15s;
   }
   .eye:hover { color: var(--text2); }
-
+ 
   /* ── Strength ── */
   .strength {
     display: flex;
@@ -215,9 +211,9 @@
     margin-top: 7px;
     margin-bottom: 18px;
   }
-
+ 
   .s-track { display:flex; gap:3px; flex:1; }
-
+ 
   .s-seg {
     height: 3px;
     flex: 1;
@@ -225,7 +221,7 @@
     border-radius: 2px;
     transition: background 0.25s;
   }
-
+ 
   .s-word {
     font-size: 11px;
     color: var(--text3);
@@ -234,7 +230,7 @@
     text-align: right;
     transition: color 0.25s;
   }
-
+ 
   /* ── Button ── */
   .btn {
     width: 100%;
@@ -250,33 +246,33 @@
     cursor: pointer;
     transition: background 0.15s, box-shadow 0.15s, transform 0.1s;
   }
-
+ 
   .btn:hover {
     background: #f0915a;
     box-shadow: 0 4px 18px var(--accent-glow);
     transform: translateY(-1px);
   }
-
+ 
   .btn:active { transform: translateY(0); box-shadow: none; }
-
+ 
   .btn:disabled {
     opacity: 0.45;
     cursor: not-allowed;
     transform: none;
     box-shadow: none;
   }
-
+ 
   .btn.secondary {
     background: transparent;
     color: var(--accent);
     border: 1px solid var(--border2);
   }
-
+ 
   .btn.secondary:hover {
     background: var(--accent-dim);
     box-shadow: none;
   }
-
+ 
   /* ── Error ── */
   .err {
     display: none;
@@ -290,7 +286,7 @@
     font-family: var(--font-mono);
   }
   .err.on { display:block; }
-
+ 
   /* ── Output ── */
   .out-wrap {
     display: none;
@@ -298,19 +294,19 @@
     animation: up 0.2s ease;
   }
   .out-wrap.on { display: block; }
-
+ 
   @keyframes up {
     from { opacity:0; transform:translateY(8px); }
     to   { opacity:1; transform:translateY(0); }
   }
-
+ 
   .out-box {
     background: var(--bg2);
     border: 1px solid var(--border);
     border-radius: var(--r);
     overflow: hidden;
   }
-
+ 
   .out-head {
     display: flex;
     align-items: center;
@@ -319,7 +315,7 @@
     border-bottom: 1px solid var(--border);
     background: var(--bg3);
   }
-
+ 
   .out-ttl {
     font-size: 11.5px;
     font-weight: 500;
@@ -328,15 +324,15 @@
     align-items: center;
     gap: 7px;
   }
-
+ 
   .out-dot {
     width: 5px; height: 5px;
     border-radius: 50%;
     background: var(--success);
   }
-
+ 
   .out-btns { display:flex; gap:6px; }
-
+ 
   .ghost {
     padding: 4px 12px;
     font-size: 12px;
@@ -350,7 +346,7 @@
     transition: all 0.15s;
   }
   .ghost:hover { background: rgba(255,255,255,0.04); color: var(--text); }
-
+ 
   .out-ta {
     width: 100%;
     background: transparent;
@@ -366,17 +362,14 @@
     word-break: break-all;
     letter-spacing: 0.3px;
   }
-
+ 
   .out-ta.plain {
     color: var(--text);
     word-break: normal;
     font-size: 13px;
     letter-spacing: 0;
   }
-
-  /* ── Divider ── */
-  .hr { height:1px; background:var(--border); margin: 28px 0; }
-
+ 
   /* ── Footer ── */
   .footer {
     margin-top: 48px;
@@ -388,17 +381,17 @@
     gap: 16px;
     flex-wrap: wrap;
   }
-
+ 
   .foot-note {
     font-size: 11px;
     color: var(--text3);
     line-height: 1.7;
   }
-
+ 
   .foot-note strong { color: var(--text2); font-weight: 500; }
-
-  .pills { display:flex; gap:5px; flex-wrap:wrap; }
-
+ 
+  .pills { display:flex; gap:5px; flex-wrap:wrap; align-items: flex-start; }
+ 
   .pill {
     font-size: 10.5px;
     font-weight: 500;
@@ -414,7 +407,7 @@
 </head>
 <body>
 <div class="app">
-
+ 
   <!-- Header -->
   <div class="header">
     <div class="wordmark">
@@ -425,7 +418,7 @@
       </svg>
       <div>
         <div class="brand-name">Cipher</div>
-        <div class="brand-sub">by Cursor</div>
+        <div class="brand-sub">by Ashlen Singh</div>
       </div>
     </div>
     <div class="badge">
@@ -433,19 +426,19 @@
       AES-256-GCM
     </div>
   </div>
-
+ 
   <!-- Tabs -->
   <div class="tabs">
     <button class="tab active" id="tabE" onclick="setMode('encrypt')">Encrypt</button>
     <button class="tab" id="tabD" onclick="setMode('decrypt')">Decrypt</button>
   </div>
-
+ 
   <!-- Message field -->
   <div class="field">
     <div class="lbl" id="inLbl">Message</div>
     <textarea id="inTA" placeholder="Type or paste your message here…"></textarea>
   </div>
-
+ 
   <!-- Passphrase -->
   <div class="field">
     <div class="lbl">Passphrase</div>
@@ -465,13 +458,13 @@
       <span class="s-word" id="sWord"></span>
     </div>
   </div>
-
+ 
   <!-- CTA -->
   <button class="btn" id="mainBtn" onclick="run()">Encrypt message</button>
-
+ 
   <!-- Error -->
   <div class="err" id="errEl"></div>
-
+ 
   <!-- Output -->
   <div class="out-wrap" id="outWrap">
     <div class="out-box">
@@ -488,7 +481,7 @@
       <textarea class="out-ta" id="outTA" readonly rows="5"></textarea>
     </div>
   </div>
-
+ 
   <!-- Footer -->
   <div class="footer">
     <div class="foot-note">
@@ -503,11 +496,11 @@
       <span class="pill">Client-only</span>
     </div>
   </div>
-
+ 
 </div>
 <script>
 let mode = 'encrypt', eyeOpen = false;
-
+ 
 function setMode(m) {
   mode = m;
   const e = m === 'encrypt';
@@ -523,13 +516,13 @@ function setMode(m) {
   document.getElementById('outWrap').classList.remove('on');
   document.getElementById('errEl').classList.remove('on');
 }
-
+ 
 function toggleEye() {
   eyeOpen = !eyeOpen;
   document.getElementById('passIn').type = eyeOpen ? 'text' : 'password';
   document.getElementById('eyeIco').textContent = eyeOpen ? '●' : '○';
 }
-
+ 
 function updateStr() {
   const v = document.getElementById('passIn').value;
   const segs = [1,2,3,4].map(i => document.getElementById('s'+i));
@@ -545,8 +538,7 @@ function updateStr() {
   if (v.length) { lbl.textContent = word[Math.max(0,s-1)]; lbl.style.color = clr[Math.max(0,s-1)]; }
   else { lbl.textContent = ''; }
 }
-
-// ─── Crypto ────────────────────────────────────────────
+ 
 async function deriveKey(pass, salt) {
   const mat = await crypto.subtle.importKey('raw', new TextEncoder().encode(pass), 'PBKDF2', false, ['deriveKey']);
   return crypto.subtle.deriveKey(
@@ -554,10 +546,10 @@ async function deriveKey(pass, salt) {
     mat, { name:'AES-GCM', length:256 }, false, ['encrypt','decrypt']
   );
 }
-
+ 
 const b64enc = buf => btoa(String.fromCharCode(...new Uint8Array(buf)));
 const b64dec = s   => Uint8Array.from(atob(s), c => c.charCodeAt(0));
-
+ 
 async function doEncrypt(txt, pass) {
   const salt = crypto.getRandomValues(new Uint8Array(16));
   const iv   = crypto.getRandomValues(new Uint8Array(12));
@@ -567,15 +559,14 @@ async function doEncrypt(txt, pass) {
   out.set(salt,0); out.set(iv,16); out.set(new Uint8Array(ct),28);
   return b64enc(out.buffer);
 }
-
+ 
 async function doDecrypt(code, pass) {
-  const buf  = b64dec(code);
-  const key  = await deriveKey(pass, buf.slice(0,16));
-  const pt   = await crypto.subtle.decrypt({ name:'AES-GCM', iv:buf.slice(16,28) }, key, buf.slice(28));
+  const buf = b64dec(code);
+  const key = await deriveKey(pass, buf.slice(0,16));
+  const pt  = await crypto.subtle.decrypt({ name:'AES-GCM', iv:buf.slice(16,28) }, key, buf.slice(28));
   return new TextDecoder().decode(pt);
 }
-
-// ─── Run ───────────────────────────────────────────────
+ 
 async function run() {
   const input = document.getElementById('inTA').value.trim();
   const pass  = document.getElementById('passIn').value;
@@ -583,17 +574,17 @@ async function run() {
   const outWr = document.getElementById('outWrap');
   const outTA = document.getElementById('outTA');
   const btn   = document.getElementById('mainBtn');
-
+ 
   errEl.classList.remove('on');
   outWr.classList.remove('on');
-
+ 
   if (!input) { showErr('Please enter a message.'); return; }
   if (!pass)  { showErr('Please enter a passphrase.'); return; }
   if (pass.length < 4) { showErr('Passphrase must be at least 4 characters.'); return; }
-
+ 
   btn.disabled = true;
   btn.textContent = mode === 'encrypt' ? 'Encrypting…' : 'Decrypting…';
-
+ 
   try {
     const result = mode === 'encrypt' ? await doEncrypt(input, pass) : await doDecrypt(input, pass);
     outTA.value = result;
@@ -608,20 +599,20 @@ async function run() {
     btn.textContent = mode === 'encrypt' ? 'Encrypt message' : 'Decrypt message';
   }
 }
-
+ 
 function showErr(msg) {
   const el = document.getElementById('errEl');
   el.textContent = msg;
   el.classList.add('on');
 }
-
+ 
 function doCopy() {
   navigator.clipboard.writeText(document.getElementById('outTA').value);
   const b = event.target;
   b.textContent = 'Copied!';
   setTimeout(() => b.textContent = 'Copy', 1600);
 }
-
+ 
 function useAsInput() {
   const val = document.getElementById('outTA').value;
   setMode('decrypt');
